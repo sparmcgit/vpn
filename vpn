@@ -20,4 +20,4 @@ exit
 
 [ "$COMMAND" = up -o "$COMMAND" = down ] || { echo "up or down"; exit 1; }
 
-echo "nmcli --ask connection $COMMAND uuid $UUID"
+nmcli --ask connection $COMMAND uuid $UUID
