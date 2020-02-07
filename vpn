@@ -1,0 +1,23 @@
+#!/bin/bash
+# Martin Häggström 200207
+
+COMMAND=$1
+UUID=
+
+function Help() {
+
+cat <<-EOF
+Set up vpn connection(s) and
+run nmcli connection show | grep vpn
+and put the UUID in the variable UUID
+in this script.
+EOF
+
+exit
+}
+
+[ "$COMMAND" = help ] && Help
+
+[ "$COMMAND" = up -o "$COMMAND" = down ] || { echo "up or down"; exit 1; }
+
+echo "nmcli --ask connection $COMMAND uuid $UUID"
